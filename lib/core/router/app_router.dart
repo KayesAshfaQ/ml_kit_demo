@@ -1,6 +1,8 @@
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
+import '../../features/barcode_scanning/providers/barcode_provider.dart';
+import '../../features/barcode_scanning/ui/barcode_screen.dart';
 import '../../features/home/home_screen.dart';
 import '../../features/text/text_provider.dart';
 import '../../features/text/text_screen.dart';
@@ -20,14 +22,14 @@ GoRouter createAppRouter(ImagePickerService picker) => GoRouter(
         child: const TextScreen(),
       ),
     ),
-    /* GoRoute(
+    GoRoute(
       path: '/barcode',
       builder: (context, state) => ChangeNotifierProvider(
         create: (_) => BarcodeProvider(picker),
         child: const BarcodeScreen(),
       ),
     ),
-    GoRoute(
+    /* GoRoute(
       path: '/face',
       builder: (context, state) => ChangeNotifierProvider(
         create: (_) => FaceProvider(picker),
