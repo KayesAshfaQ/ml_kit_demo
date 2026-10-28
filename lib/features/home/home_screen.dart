@@ -31,6 +31,12 @@ class HomeScreen extends StatelessWidget {
                 route: '/face',
                 icon: Icons.face_outlined,
               ),
+              (
+                title: 'TFLite Classifier',
+                subtitle: 'Inspect tensors and run a pre-trained model',
+                route: '/tflite-classifier',
+                icon: Icons.memory_outlined,
+              ),
             ])
               Card(
                 child: ListTile(

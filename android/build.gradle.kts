@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
+
 allprojects {
     repositories {
         google()
@@ -17,6 +20,13 @@ subprojects {
 }
 subprojects {
     project.evaluationDependsOn(":app")
+    if (name == "tflite_flutter") {
+        // tflite_flutter 0.12.1 targets Java 11, but its Kotlin tasks otherwise
+        // inherit the host JDK target (25 on current Android Studio installs).
+        tasks.withType<KotlinJvmCompile>().configureEach {
+            compilerOptions.jvmTarget.set(JvmTarget.JVM_11)
+        }
+    }
 }
 
 tasks.register<Delete>("clean") {

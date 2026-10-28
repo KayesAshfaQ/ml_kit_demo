@@ -8,14 +8,13 @@ import '../../features/face_detection/ui/face_screen.dart';
 import '../../features/home/home_screen.dart';
 import '../../features/text/text_provider.dart';
 import '../../features/text/text_screen.dart';
+import '../../features/tflite_classifier/providers/tflite_provider.dart';
+import '../../features/tflite_classifier/ui/tflite_screen.dart';
 import '../services/image_picker_service.dart';
 
 GoRouter createAppRouter(ImagePickerService picker) => GoRouter(
   routes: [
-    GoRoute(
-      path: '/',
-      builder: (context, state) => const HomeScreen(),
-    ),
+    GoRoute(path: '/', builder: (context, state) => const HomeScreen()),
     // Providers belong to routes: popping a screen disposes its native detector.
     GoRoute(
       path: '/text',
@@ -36,6 +35,13 @@ GoRouter createAppRouter(ImagePickerService picker) => GoRouter(
       builder: (context, state) => ChangeNotifierProvider(
         create: (_) => FaceProvider(picker),
         child: const FaceScreen(),
+      ),
+    ),
+    GoRoute(
+      path: '/tflite-classifier',
+      builder: (context, state) => ChangeNotifierProvider(
+        create: (_) => TfliteProvider(picker)..initModel(),
+        child: const TfliteScreen(),
       ),
     ),
   ],
