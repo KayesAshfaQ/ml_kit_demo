@@ -37,6 +37,12 @@ class HomeScreen extends StatelessWidget {
                 route: '/tflite-classifier',
                 icon: Icons.memory_outlined,
               ),
+              (
+                title: 'Local LLM',
+                subtitle: 'Stream offline AI',
+                route: '/local-llm',
+                icon: Icons.auto_awesome_outlined,
+              ),
             ])
               Card(
                 child: ListTile(

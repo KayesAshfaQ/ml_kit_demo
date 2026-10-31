@@ -44,6 +44,12 @@ dependencies:
   google_mlkit_face_detection: ^0.15.1
   tflite_flutter: ^0.12.1
   image: ^4.12.0
+  http: ^1.6.0
+  path_provider: ^2.1.6
+  flutter_llama:
+    git:
+      url: git@gitlab.com:KayesAshfaQ/flutter_llama.git
+      ref: 425261aacf8f72b64ad3700ec48dd5c9ac7365d8
 
 dev_dependencies:
   flutter_test:

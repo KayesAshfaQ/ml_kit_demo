@@ -6,6 +6,8 @@ import '../../features/barcode_scanning/ui/barcode_screen.dart';
 import '../../features/face_detection/providers/face_provider.dart';
 import '../../features/face_detection/ui/face_screen.dart';
 import '../../features/home/home_screen.dart';
+import '../../features/local_llm/providers/llm_provider.dart';
+import '../../features/local_llm/ui/llm_screen.dart';
 import '../../features/text/text_provider.dart';
 import '../../features/text/text_screen.dart';
 import '../../features/tflite_classifier/providers/tflite_provider.dart';
@@ -42,6 +44,13 @@ GoRouter createAppRouter(ImagePickerService picker) => GoRouter(
       builder: (context, state) => ChangeNotifierProvider(
         create: (_) => TfliteProvider(picker)..initModel(),
         child: const TfliteScreen(),
+      ),
+    ),
+    GoRoute(
+      path: '/local-llm',
+      builder: (context, state) => ChangeNotifierProvider(
+        create: (_) => LlmProvider(),
+        child: const LlmScreen(),
       ),
     ),
   ],
